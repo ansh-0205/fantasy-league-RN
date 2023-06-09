@@ -5,6 +5,9 @@ const bcrypt = require('bcrypt');
 
 const matchSchema = new mongoose.Schema(
     {
+        matchId: {
+            type: Number
+        },
         venue: {
             type: String
         },

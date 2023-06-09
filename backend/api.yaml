@@ -229,36 +229,68 @@ paths:
                                 default: 'password updated'
                 400:
                     description: error in updating password
-    #liveFixtures
-    /matches/liveFixtures:
+    #fixtures
+    /match/fixtures:
         get:
-            summary: to get the data of all the live matches
+            summary: get the fixtures
             parameters:
+                - in: body
+
             responses:
                 200:
-                    description: data of live matches
+                    description: fixtures displayed
                     schema:
+                        type: object
+                        properties:
+                            message:
+                                type: string
+                                default: 'Success'
                 400:
-                    description: error in getting data
-    #pastFixtures
-    /matches/pastFixtures:
+                    description: error in displaying fixtures
+    #standings
+    /match/standings:
         get:
-            summary: to get the data of all past matches
+            summary: get the standings
             parameters:
-            responses:
+                - in: body
+                schema:
+                    type: object
+                    properties:
+                    leagueId:
+                        type: string
+                        default: '207'
+            response:
                 200:
-                    description: data of past matches
+                    description: display standings for the league
                     schema:
+                        type: object
+                        properties:
+                            message:
+                                type: string
+                                default: 'Success'
                 400:
-                    description: error in getting data
-    #futureFixtures
-    /matches/futureFixtures:
+                    description: error in displaying standings
+    #topScorer
+    /match/topScorer:
         get:
-            summary: to get the data of all future matches
+            summary: get the topScorer
             parameters:
-            responses:
+                - in: body
+                schema:
+                    type: object
+                    properties:
+                    leagueId:
+                        type: string
+                        default: '96'
+            response:
                 200:
-                    description: data of future matches
+                    description: display the top scorer 
                     schema:
+                        type: object
+                        properties:
+                            message:
+                                type: string
+                                default: 'Success'
                 400:
-                    description: error in getting data
+                    description: error in displaying the topscorer
+
