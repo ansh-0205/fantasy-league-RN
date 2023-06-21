@@ -26,24 +26,17 @@ const fixtures = async(req,res)=>{
     const options = {
         method: 'GET'
     }
+    const name={};
     fetch(Url,options)
     .then(res=>res.json())
     .then(json => {
-        res.status(200).json(json);
+        for(let i=0;i<json.data.length;i++)
+        {
+            name[i]=json.data[i].name;
+        }
+        res.status(200).json(name);
     })
     .catch(err => console.error('error:'+err));
-}
-//standings
-const standings = async(req,res)=>{
-    const Url = url +`standings?api_token=${process.env.API_KEY}`;
-    const options = {
-        method: 'GET'
-    }
-    fetch(Url,options)
-     .then(res=>res.json())
-     .then(json=>{
-        res.status(200).json(json)
-     })
 }
 //topScorer
 const topScorer = async(req,res)=>{
@@ -69,4 +62,4 @@ const topScorer = async(req,res)=>{
 
 
 //exporting routes
-module.exports = { fixtures , teams , standings , topScorer };
+module.exports = { fixtures , teams , topScorer };

@@ -11,6 +11,5 @@ const {
 
 router.get('/fixtures',authentication.verifyToken, fixtures);
 router.get('/teams',authentication.verifyToken, teams);
-router.get('/standings',authentication.verifyToken, standings);
 router.get('/topScorer',authentication.verifyToken, topScorer);
 module.exports = router;
